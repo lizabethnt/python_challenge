@@ -12,6 +12,7 @@ greatest_profit = 0
 greatest_decrease = 0
 months_counter = 0
 change = []
+
 #get csv file
 budget_data_csv = os.path.join("Resources", "budget_data.csv")
 
@@ -40,7 +41,17 @@ avg_change = sum(change)/(len(change))
 
 #print results
 print(change)
-print("\n Financial Analysis \n--------------------------------")
+print("\n Financial Analysis \n------------------------")
 print(f"\nTotal Months: ", months_counter)
 print(f"\nTotal: ${total}")
 print(f"\nAverage Change: ${round(avg_change,2)}")
+
+# Set variable for output file
+output_file = os.path.join("python_challenge_final.txt")
+
+#  Open the output file
+with open(output_file, "w") as textfile:
+    textfile.write("Financial Analysis \n\n------------------------")
+    textfile.write(f"\n\nTotal Months: {months_counter}")
+    textfile.write(f"\n\nTotal: ${total}")
+    textfile.write(f"\n\nAverage Change: ${round(avg_change,2)}")
