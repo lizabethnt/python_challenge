@@ -21,14 +21,26 @@ with open(budget_data_csv) as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
     next(csv_reader)
     for row in csv_reader:
+
 #find the number of months
         months_counter = months_counter + 1
+
 #find the total profit/loss
         total = total + int(row[1])
-#find the change
+
+#find the changes for each month
+        change.append(int(row[1]) - prev_row_profit)
+
+#setup for next row's calculation
+        prev_row_profit = int(row[1])
+
+#find the average change:need to first remove initial month's change list entry as it should be N/A
+del change[0]
+avg_change = sum(change)/(len(change))
 
 #print results
 print(change)
 print("\n Financial Analysis \n--------------------------------")
 print(f"\nTotal Months: ", months_counter)
 print(f"\nTotal: ${total}")
+print(f"\nAverage Change: ${round(avg_change,2)}")
