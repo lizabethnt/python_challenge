@@ -22,7 +22,7 @@ budget_data_csv = os.path.join("Resources", "budget_data.csv")
 #AVG profit/loss, greatest profit and greatest decrease in profits
 with open(budget_data_csv) as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
-    next(csv_reader)
+    csv_header = next(csvfile)
     for row in csv_reader:
 
 #find the number of months
