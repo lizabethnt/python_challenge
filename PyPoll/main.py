@@ -27,19 +27,24 @@ with open(election_data_csv) as csvfile:
             candidate_votes[row[2]] = 0
         candidate_votes[row[2]] += 1
 
+#fill the percentage_votes list with percentages of each candidate
 for candidate in candidate_votes:
     percentage_votes.append(candidate_votes[candidate] / votes)
+#find the winner
     if candidate_votes[candidate] > greatest_votes:
         greatest_votes = candidate_votes[candidate]
         winner = str(candidate)
 
-#todo:  print all results in the same formatting as shown in the assignment
+#print all results in the same formatting as demonstrated in the assignment from bootcamp
 print(f"Election Results\n -------------------------------")
 print(f"\nTotal Votes: {votes} \n ------------------------------")     
 
-#todo:  write a version of this which iterates for each candidate with votes
-print(f"\n", list(candidate_votes.keys())[0], ":", percentage_votes[0], "(", percentage_votes[0],")")
-print("\n",percentage_votes)
-print("\n", winner)
+#iterate printing the votes and percentage for each candidate
+counter = 0
+for candidate in candidate_votes:
+    print(f"\n{list(candidate_votes.keys())[counter]}: {round(percentage_votes[counter] * 100, 3)}% ({candidate_votes[candidate]})")
+    counter += 1
+    
+print("\nWinner: ", winner)
 
 #todo: copy all results to a text file
