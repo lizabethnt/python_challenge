@@ -75,3 +75,4 @@ with open(output_file, "w") as textfile:
     textfile.write(f"\n\nAverage Change: ${round(avg_change,2)}")
     textfile.write(f"\n\nGreatest Increase in Profits: {greatest_increase_date} (${greatest_increase})")
     textfile.write(f"\n\nGreatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
+
