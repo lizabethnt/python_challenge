@@ -44,7 +44,17 @@ counter = 0
 for candidate in candidate_votes:
     print(f"\n{list(candidate_votes.keys())[counter]}: {round(percentage_votes[counter] * 100, 3)}% ({candidate_votes[candidate]})")
     counter += 1
-    
+
 print("\nWinner: ", winner)
 
-#todo: copy all results to a text file
+# Set variable for output file
+output_file = os.path.join("analysis", "PyPoll_analysis.txt")
+
+#  Open the output file and write all results to it
+with open(output_file, "w") as textfile:
+    textfile.write(f"Election Results\n -------------------------------\n")
+    textfile.write(f"\nTotal Votes: {votes} \n ------------------------------\n")
+    counter = 0
+    for candidate in candidate_votes:
+        textfile.write(f"\n{list(candidate_votes.keys())[counter]}: {round(percentage_votes[counter] * 100, 3)}% ({candidate_votes[candidate]})\n")
+        counter += 1

@@ -65,9 +65,9 @@ print(f"\n\nGreatest Increase in Profits: {greatest_increase_date} (${greatest_i
 print(f"\n\nGreatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
 
 # Set variable for output file
-output_file = os.path.join("python_challenge_final.txt")
+output_file = os.path.join("analysis","python_challenge_final.txt")
 
-#  Open the output file
+#  Open the output file and write all results to it
 with open(output_file, "w") as textfile:
     textfile.write("Financial Analysis \n\n------------------------")
     textfile.write(f"\n\nTotal Months: {months_counter}")
