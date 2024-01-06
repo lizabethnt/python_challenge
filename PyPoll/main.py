@@ -45,7 +45,9 @@ for candidate in candidate_votes:
     print(f"\n{list(candidate_votes.keys())[counter]}: {round(percentage_votes[counter] * 100, 3)}% ({candidate_votes[candidate]})")
     counter += 1
 
+print(f"\n ------------------------------")
 print("\nWinner: ", winner)
+print(f"\n ------------------------------")
 
 # Set variable for output file
 output_file = os.path.join("analysis", "PyPoll_analysis.txt")
@@ -58,3 +60,6 @@ with open(output_file, "w") as textfile:
     for candidate in candidate_votes:
         textfile.write(f"\n{list(candidate_votes.keys())[counter]}: {round(percentage_votes[counter] * 100, 3)}% ({candidate_votes[candidate]})\n")
         counter += 1
+    textfile.write(f"\n ------------------------------")
+    textfile.write(f"\nWinner: {winner}")
+    textfile.write(f"\n ------------------------------")
